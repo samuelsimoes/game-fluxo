@@ -1,0 +1,15 @@
+{
+  "name": "browserify-starter",
+  "main": "js/main.js",
+  "version": "0.0.1",
+  "devDependencies": {
+    "express": "*",
+    "babelify": "*",
+    "browserify": "*",
+    "browserify-incremental": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "build": "browserifyinc . --extension=jsx --transform [ babelify ] --outfile js/bundle.js"
+  }
+}
