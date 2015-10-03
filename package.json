@@ -6,12 +6,14 @@
     "watchify": "*",
     "express": "*",
     "babelify": "*",
-    "browserify": "*",
-    "browserify-incremental": "*"
+    "browserify": "*"
+  },
+  "browserify": {
+    "transform": ["babelify"]
   },
   "scripts": {
     "start": "node server.js",
-    "build": "browserifyinc . --extension=jsx --transform [ babelify ] --outfile js/bundle.js",
-    "watch": "watchify . -v --extension=jsx --transform [ babelify ] --outfile js/bundle.js"
+    "build": "browserify . --extension=jsx --outfile js/bundle.js",
+    "watch": "watchify . -v --extension=jsx --outfile js/bundle.js"
   }
 }
