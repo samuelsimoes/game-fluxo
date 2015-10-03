@@ -3,6 +3,7 @@
   "main": "js/main.js",
   "version": "0.0.1",
   "devDependencies": {
+    "watchify": "*",
     "express": "*",
     "babelify": "*",
     "browserify": "*",
@@ -10,6 +11,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "build": "browserifyinc . --extension=jsx --transform [ babelify ] --outfile js/bundle.js"
+    "build": "browserifyinc . --extension=jsx --transform [ babelify ] --outfile js/bundle.js",
+    "watch": "watchify . -v --extension=jsx --transform [ babelify ] --outfile js/bundle.js"
   }
 }
