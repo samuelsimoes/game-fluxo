@@ -5,11 +5,15 @@
   "devDependencies": {
     "watchify": "*",
     "express": "*",
-    "babelify": "*",
-    "browserify": "*"
+    "browserify": "*",
+    "babelify": "7.2.0",
+    "babel-preset-es2015": "6.3.13",
+    "babel-preset-react": "6.3.13"
   },
   "browserify": {
-    "transform": ["babelify"]
+    "transform": [
+      ["babelify", { "presets": ["es2015", "react"] }]
+    ]
   },
   "scripts": {
     "start": "node server.js",
