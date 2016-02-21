@@ -1,9 +1,15 @@
 import Fluxo from "fluxo-js";
+import uuid from "node-uuid";
 
 export default class extends Fluxo.ObjectStore {
   static defaults = {
     type: "player"
   };
+
+  constructor () {
+    super(...arguments);
+    this.setAttribute("id", uuid.v1());
+  }
 
   step (direction) {
     let intendedCoord = { x: this.data.x, y: this.data.y };

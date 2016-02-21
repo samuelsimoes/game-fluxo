@@ -3,6 +3,7 @@ import Player from "./stores/player";
 import React from "react";
 import Connector from "fluxo-react-connect-stores";
 import Space from "./components/space";
+import SocketIO from "socket.io-client";
 import { render } from "react-dom";
 
 let innerBounds = [
@@ -17,7 +18,35 @@ let innerBounds = [
 let place = new Place(innerBounds, { width: 20, height: 15 }),
     player = new Player();
 
-place.put(player);
+let socket = SocketIO.connect();
+
+window.addEventListener("beforeunload", function() {
+  socket.emit("playerExit", player.data.id);
+});
+
+player.on(["change:x", "change:y"], function () {
+  socket.emit("playerMovement", this.data);
+});
+
+socket.on("connected", function (playersData) {
+  place.addStores(playersData);
+  place.put(player);
+  socket.emit("enterNewPlayer", player.data);
+});
+
+socket.on("playerMovemented", (data) => {
+  if (data.id === player.data.id) { return; }
+  place.setStores([data]);
+});
+
+socket.on("playerEntered", (data) => {
+  if (data.id === player.data.id) { return; }
+  place.addStore(data);
+});
+
+socket.on("playerExit", (id) => {
+  place.remove(place.find(id));
+});
 
 window.addEventListener("keydown", function (evt) {
   let direction;

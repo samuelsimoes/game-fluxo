@@ -33,7 +33,9 @@
   "dependencies": {
     "fluxo-js": "0.0.22",
     "fluxo-react-connect-stores": "0.0.5",
+    "node-uuid": "^1.4.7",
     "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "react-dom": "^0.14.6",
+    "socket.io": "^1.4.5"
   }
 }
