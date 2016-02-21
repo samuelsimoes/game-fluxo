@@ -3,21 +3,37 @@
   "main": "js/main.js",
   "version": "0.0.1",
   "devDependencies": {
-    "watchify": "*",
-    "express": "*",
-    "browserify": "*",
-    "babelify": "7.2.0",
     "babel-preset-es2015": "6.3.13",
-    "babel-preset-react": "6.3.13"
+    "babel-preset-react": "6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babelify": "7.2.0",
+    "browserify": "*",
+    "express": "*",
+    "watchify": "*"
   },
   "browserify": {
     "transform": [
-      ["babelify", { "presets": ["es2015", "react"] }]
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015",
+            "react",
+            "stage-0"
+          ]
+        }
+      ]
     ]
   },
   "scripts": {
     "start": "node server.js",
     "build": "browserify . --extension=jsx --outfile js/bundle.js",
     "watch": "watchify . -v --extension=jsx --outfile js/bundle.js"
+  },
+  "dependencies": {
+    "fluxo-js": "0.0.22",
+    "fluxo-react-connect-stores": "0.0.5",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
   }
 }
