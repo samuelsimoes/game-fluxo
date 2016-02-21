@@ -8,7 +8,6 @@
     "babel-preset-stage-0": "^6.3.13",
     "babelify": "7.2.0",
     "browserify": "*",
-    "express": "*",
     "watchify": "*"
   },
   "browserify": {
@@ -31,6 +30,7 @@
     "watch": "watchify . -v --extension=jsx --outfile js/bundle.js"
   },
   "dependencies": {
+    "express": "*",
     "fluxo-js": "0.0.22",
     "fluxo-react-connect-stores": "0.0.5",
     "node-uuid": "^1.4.7",
