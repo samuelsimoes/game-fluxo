@@ -49,7 +49,7 @@ var _class = function (_React$Component) {
     key: "renderElements",
     value: function renderElements() {
       return this.props.place.stores.map(function (element) {
-        var styles = {
+        var style = {
           position: "absolute",
           background: element.type === "bound" ? "black" : "red",
           top: element.x * dpi,
@@ -59,7 +59,7 @@ var _class = function (_React$Component) {
           boxSizing: "border-box"
         };
 
-        return _react2.default.createElement("div", { style: styles });
+        return _react2.default.createElement("div", { key: element.cid, style: style });
       });
     }
   }]);

@@ -19,7 +19,7 @@ export default class extends React.Component {
 
   renderElements () {
     return this.props.place.stores.map(element => {
-      let styles = {
+      let style = {
         position: "absolute",
         background: (element.type === "bound" ? "black" : "red"),
         top: (element.x * dpi),
@@ -29,7 +29,7 @@ export default class extends React.Component {
         boxSizing: "border-box"
       };
 
-      return <div style={styles}></div>;
+      return <div key={element.cid} style={style}></div>;
     });
   }
 }
