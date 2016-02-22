@@ -48,26 +48,10 @@ socket.on("playerExit", (id) => {
   place.remove(place.find(id));
 });
 
-window.addEventListener("keydown", function (evt) {
-  let direction;
+let directions = { 37: "w", 38: "s", 39: "e", 40: "n" };
 
-  switch (evt.keyCode) {
-    case 37:
-      direction = "w";
-      break;
-    case 38:
-      direction = "s";
-      break;
-    case 39:
-      direction = "e";
-      break;
-    case 40:
-      direction = "n";
-      break;
-    default:
-      direction = null;
-      break;
-  }
+window.addEventListener("keydown", (evt) => {
+  let direction = directions[evt.keyCode];
 
   if (direction) {
     player.step(direction);
