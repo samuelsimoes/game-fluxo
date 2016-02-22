@@ -1,5 +1,7 @@
 # [wip] Little experiment game with [Fluxo](https://github.com/fluxo-js/fluxo)
 
+[fluxo-game.herokuapp.com](https://fluxo-game.herokuapp.com)
+
 On first run `$ npm install`.
 
 To build run `$ npm run build`.
